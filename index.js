@@ -1,12 +1,12 @@
 function identity(input) {
-  return input
+  return input;
 }
 
 function identityF(arg) {
   function nestedFunc() {
-    return arg
+    return arg;
   }
-  return nestedFunc
+  return nestedFunc;
 }
 
 function add(num1, num2) {
@@ -14,26 +14,36 @@ function add(num1, num2) {
 }
 
 function subtract(num1, num2) {
-  return num1 - num2
+  return num1 - num2;
 }
 
 function multiply(num1, num2) {
-  return num1 * num2
+  return num1 * num2;
 }
 
 function increment(num) {
-  return add(num,1);
+  return add(num, 1);
 }
 
 function addF(num1) {
-  return function (num2){
+  return function (num2) {
     return add(num1, num2);
-  }
+  };
 }
 
-function curry() {}
+function curry(func, num1) {
+  return function (num2) {
+    return func(num1, num2);
+  };
+}
 
-function liftF() {}
+function liftF(func) {
+  return function (num1) {
+    return function (num2) {
+      return func(num1, num2);
+    };
+  };
+}
 
 function twice() {}
 
