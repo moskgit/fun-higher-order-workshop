@@ -54,7 +54,18 @@ function once(func){
     return result;
   };
 }
-function twice() {}
+function twice(func) {
+  let restrictedTo = 2;
+  let result = 0
+  return function restrictedFunc(a) {
+    if (restrictedTo-- > 0) {
+      result = func(a, a)
+      return result
+    }
+    // console.log("result: ", result)
+    return result
+  }
+}
 
 function composeU() {}
 

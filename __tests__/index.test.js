@@ -137,17 +137,17 @@ describe('Unary Functions', () => {
     });
   });
 });
-//   describe('Unary Functions', () => {
-//     describe('twice', () => {
-//       it('returns a function on first invocation', () => {
-//         const double = twice(add);
-//         expect(typeof double).toBe('function');
-//       });
-//       it('returns the value on second invocation', () => {
-//         const double = twice(add);
-//         expect(double(3)).toBe(add(3, 3));
-//       });
-//     });
+  describe('Unary Functions', () => {
+    describe('twice', () => {
+      it('returns a function on first invocation', () => {
+        const double = twice(add);
+        expect(typeof double).toBe('function');
+      });
+      it('returns the value on second invocation', () => {
+        const double = twice(add);
+        expect(double(3)).toBe(add(3, 3));
+      });
+    });
 //     describe('composeU', () => {
 //       it('returns a function on first invocation', () => {
 //         const add100 = (x) => x + 100;
@@ -546,4 +546,4 @@ describe('Unary Functions', () => {
 //       expect(gen()).toBe(undefined);
 //     });
 //   });
-// });
+});
