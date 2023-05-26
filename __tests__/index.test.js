@@ -8,6 +8,7 @@ const {
   addF,
   curry,
   liftF,
+  once,
   twice,
   composeU,
   composeB,
@@ -123,14 +124,19 @@ describe("liftF", () => {
   });
 });
 // });
-
-   describe('once', () => {
-     it('restricted to invoking once only', () => {
-        // Write your own tests for once
-        expect(once().toBe());
-     })
-   })
-
+describe('Unary Functions', () => {
+  // Write your own tests for once
+  describe('once', () => {
+    it('restricted to invoking once only', () => {
+      const testVar = once(add);
+      expect(typeof testVar).toBe('function');
+    })
+    it('returns the first call value on the second invocation', () => {
+      const testVar = once(add);
+      expect(testVar(1,2)).toBe(3);
+    });
+  });
+});
 //   describe('Unary Functions', () => {
 //     describe('twice', () => {
 //       it('returns a function on first invocation', () => {

@@ -43,6 +43,17 @@ function liftF(func) {
   };
 }
 
+function once(func){
+  let restrictedTo = 1;
+  let result = 0;
+  return function restrictedFunc(a, b){
+    if(restrictedTo-- > 0) {
+      result = func(a,b);
+      return result; 
+    } 
+    return result;
+  };
+}
 function twice() {}
 
 function composeU() {}
@@ -85,6 +96,7 @@ module.exports = {
   addF,
   curry,
   liftF,
+  once,
   twice,
   composeU,
   composeB,

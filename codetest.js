@@ -1,21 +1,19 @@
-function add(num1, num2) {
-  return num1 + num2;
+function add(a,b){
+  return a+b;
 }
-
-function liftF(func) {
-  return function (num1) {
-    return function (num2) {
-      return func(num1, num2);
-    };
+function once(func){
+  let restrictedTo = 1;
+  let result = 0;
+  return function restrictedFunc(a, b){
+    if(restrictedTo-- > 0) {
+      result = func(a,b);
+      return result; 
+    } 
+    return result;
   };
 }
-
-const addF = liftF(add);
-const add3 = addF(3);
-const result = add3(4);
-console.log(result);
-// const firstReturn = addTest(1);
-// console.log("firstReturn: ", firstReturn)
-// const secondReturn = addTest(2);
-
-// console.log("secondReturn: ", secondReturn);
+const restd = once(add);
+const result1 = restd(1,2);
+const result2 = restd(3,4);
+console.log(result1)
+console.log(result2)
