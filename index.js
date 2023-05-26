@@ -91,13 +91,22 @@ function limit(func, num){
 }
 
 function from(num) {
-  let result = 0;
   return function generator(){
-      return result = num++; 
+      return num++; 
   };
 }
 
-function to() {}
+function to(generator, limit) {
+  let start = 0;
+  return function limiterFunc(){
+    if(start == 0){
+      start = generator(); 
+      return start;
+    }else if(start < --limit) {
+      return generator();
+    }
+  }
+}
 
 function fromTo() {}
 

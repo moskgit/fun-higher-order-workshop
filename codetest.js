@@ -1,48 +1,81 @@
-// function add(a,b){
-//   return a+b;
-// }
-// function mul (a, b) {
-//   return a * b
-// }
-// // function once(func){
-// //   let restrictedTo = 1;
-// //   let result = 0;
-// //   return function restrictedFunc(a, b){
-// //     if(restrictedTo-- > 0) {
-// //       result = func(a,b);
-// //       return result; 
-// //     } 
-// //     return result;
-// //   };
-// // }
-// // const restd = once(add);
-// // const result1 = restd(1,2);
-// // const result2 = restd(3,4);
-// // console.log(result1)
-// // console.log(result2)
+function from(num) {
+  return function generator(){
+    return num++; 
+  };
+}
+function to(gen, lim) {
+  let startFrom = 0;
+  return function limiter(){
+    if(startFrom == 0){
+      startFrom = gen(); 
+      return startFrom;
+    }else if(startFrom < --lim) {
+      // console.log('startFrom: ', startFrom);
+      const temp = gen();
+      // console.log('temp: ', temp);
+      return temp;
+    }
+  }
+}
+const x = to(from(1),3);
+console.log(x());
+console.log(x());
+console.log(x());
+console.log(x());
+console.log(x());
+console.log(x());
+console.log(x());
+console.log(x());
 
 
 
-// function twice(func) {
-//   let restrictedTo = 2;
-//   let result = 0
-//   return function restrictedFunc(a) {
-//     if (restrictedTo-- > 0) {
-//       result = func(a, a)
-//       return result
+// function to(generator, limit) {
+//   let upto = limit - 1;
+//   let callCount = 0;
+//   let startFrom = 0;
+//   return function restrictedFunc(){
+//     if(callCount === 0) {
+//       startFrom = generator();
+//       callCount++;
+//       return startFrom;
 //     }
-//     console.log("result: ", result)
-//     return result
+//     if(upto-- > startFrom){
+//       callCount++;
+//       let num = generator();
+//       return num--;
+//     }
 //   }
 // }
 
-// const test = twice(mul)
-// const firstTest = test(11)
-// // const secondTest = test(4)
-// console.log("firstTest: ", firstTest)
+// const x = to(from(0), 6);
 
-function composeU(func1, func2) {
-  return function funcOneArg(num1, num2, num3){
-    return func2(func1(num1, num2), num3);
-  }
-}
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+
+
+// function fromTo(num1, num2) {
+//   let upto = num2 -1;
+//   return function generator(){
+//       if(num1++ < upto) return num1; 
+//   };
+// }
+// const x = fromTo(10,20);
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
+// console.log(x())
