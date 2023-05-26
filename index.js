@@ -67,9 +67,17 @@ function twice(func) {
   }
 }
 
-function composeU() {}
+function composeU(func1, func2) {
+  return function oneArg(num){
+    return func2(func1(num));
+  }
+}
 
-function composeB() {}
+function composeB(func1, func2) {
+  return function funcOneArg(num1, num2, num3){
+    return func2(func1(num1, num2), num3);
+  }
+}
 
 function limit() {}
 

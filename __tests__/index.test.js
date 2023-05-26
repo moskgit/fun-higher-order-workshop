@@ -148,32 +148,32 @@ describe('Unary Functions', () => {
         expect(double(3)).toBe(add(3, 3));
       });
     });
-//     describe('composeU', () => {
-//       it('returns a function on first invocation', () => {
-//         const add100 = (x) => x + 100;
-//         const add50 = (x) => x + 50;
-//         const add150 = composeU(add100, add50);
-//         expect(typeof add150).toBe('function');
-//       });
-//       it('returns a value of given function on second invocation', () => {
-//         const square = (x) => x * x;
-//         const double = (x) => x + x;
-//         const squareThenDouble = composeU(square, double);
-//         const doubleThenSquare = composeU(double, square);
-//         expect(squareThenDouble(5)).toBe(50);
-//         expect(doubleThenSquare(5)).toBe(100);
-//       });
-//     });
-//     describe('composeB', () => {
-//       it('returns a function on first invocation', () => {
-//         const add2NumsMultiplyBy3rd = composeB(add, multiply);
-//         expect(typeof add2NumsMultiplyBy3rd).toBe('function');
-//       });
-//       it('on second invocation, takes 3 values, using the first two for function #1 then using that returned value and the third parameter for function #2', () => {
-//         const add2NumsMultiplyBy3rd = composeB(add, multiply);
-//         expect(add2NumsMultiplyBy3rd(2, 3, 7)).toBe(multiply(add(2, 3), 7));
-//       });
-//     });
+    describe('composeU', () => {
+      it('returns a function on first invocation', () => {
+        const add100 = (x) => x + 100;
+        const add50 = (x) => x + 50;
+        const add150 = composeU(add100, add50);
+        expect(typeof add150).toBe('function');
+      });
+      it('returns a value of given function on second invocation', () => {
+        const square = (x) => x * x;
+        const double = (x) => x + x;
+        const squareThenDouble = composeU(square, double);
+        const doubleThenSquare = composeU(double, square);
+        expect(squareThenDouble(5)).toBe(50);
+        expect(doubleThenSquare(5)).toBe(100);
+      });
+    });
+    describe('composeB', () => {
+      it('returns a function on first invocation', () => {
+        const add2NumsMultiplyBy3rd = composeB(add, multiply);
+        expect(typeof add2NumsMultiplyBy3rd).toBe('function');
+      });
+      it('on second invocation, takes 3 values, using the first two for function #1 then using that returned value and the third parameter for function #2', () => {
+        const add2NumsMultiplyBy3rd = composeB(add, multiply);
+        expect(add2NumsMultiplyBy3rd(2, 3, 7)).toBe(multiply(add(2, 3), 7));
+      });
+    });
 //     describe('limit', () => {
 //       it('returns a function on first invocation', () => {
 //         const useAddOnceOnly = limit(add, 1);
