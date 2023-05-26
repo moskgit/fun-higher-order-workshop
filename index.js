@@ -10,7 +10,7 @@ function identityF(arg) {
 }
 
 function add(num1, num2) {
-  return num1 + num2
+  return num1 + num2;
 }
 
 function subtract(num1, num2) {
@@ -21,9 +21,15 @@ function multiply(num1, num2) {
   return num1 * num2
 }
 
-function increment() {}
+function increment(num) {
+  return add(num,1);
+}
 
-function addF() {}
+function addF(num1) {
+  return function (num2){
+    return add(num1, num2);
+  }
+}
 
 function curry() {}
 
