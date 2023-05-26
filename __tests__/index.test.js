@@ -174,36 +174,36 @@ describe('Unary Functions', () => {
         expect(add2NumsMultiplyBy3rd(2, 3, 7)).toBe(multiply(add(2, 3), 7));
       });
     });
-//     describe('limit', () => {
-//       it('returns a function on first invocation', () => {
-//         const useAddOnceOnly = limit(add, 1);
-//         expect(typeof useAddOnceOnly).toBe('function');
-//       });
-//       it('on subsequent uses, returns value of original function when invoked less times than given limit', () => {
-//         const useAddLiberally = jest.fn(limit(add, 108));
-//         expect(useAddLiberally(3, 1)).toBe(4);
-//         expect(useAddLiberally(4, 4)).toBe(8);
-//         expect(useAddLiberally(0, 15)).toBe(15);
-//         expect(useAddLiberally(1, 15)).toBe(16);
-//         expect(useAddLiberally(11, 12)).toBe(23);
-//         expect(useAddLiberally(4, 38)).toBe(42);
-//         expect(useAddLiberally).toHaveBeenCalledTimes(6);
-//       });
-//       it('returns undefined when invoked more times than given limit', () => {
-//         const useSubtractScarcely = jest.fn(limit(subtract, 3));
-//         expect(useSubtractScarcely(3, 1)).toBe(2);
-//         expect(useSubtractScarcely).toHaveBeenCalledTimes(1);
-//         expect(useSubtractScarcely(8, 4)).toBe(4);
-//         expect(useSubtractScarcely).toHaveBeenCalledTimes(2);
-//         expect(useSubtractScarcely(15, 2)).toBe(13);
-//         expect(useSubtractScarcely).toHaveBeenCalledTimes(3);
-//         expect(useSubtractScarcely(10, 5)).toBe(undefined);
-//         expect(useSubtractScarcely).toHaveBeenCalledTimes(4);
-//         expect(useSubtractScarcely(11, 1)).toBe(undefined);
-//         expect(useSubtractScarcely).toHaveBeenCalledTimes(5);
-//       });
-//     });
-//   });
+    describe('limit', () => {
+      it('returns a function on first invocation', () => {
+        const useAddOnceOnly = limit(add, 1);
+        expect(typeof useAddOnceOnly).toBe('function');
+      });
+      it('on subsequent uses, returns value of original function when invoked less times than given limit', () => {
+        const useAddLiberally = jest.fn(limit(add, 108));
+        expect(useAddLiberally(3, 1)).toBe(4);
+        expect(useAddLiberally(4, 4)).toBe(8);
+        expect(useAddLiberally(0, 15)).toBe(15);
+        expect(useAddLiberally(1, 15)).toBe(16);
+        expect(useAddLiberally(11, 12)).toBe(23);
+        expect(useAddLiberally(4, 38)).toBe(42);
+        expect(useAddLiberally).toHaveBeenCalledTimes(6);
+      });
+      it('returns undefined when invoked more times than given limit', () => {
+        const useSubtractScarcely = jest.fn(limit(subtract, 3));
+        expect(useSubtractScarcely(3, 1)).toBe(2);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(1);
+        expect(useSubtractScarcely(8, 4)).toBe(4);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(2);
+        expect(useSubtractScarcely(15, 2)).toBe(13);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(3);
+        expect(useSubtractScarcely(10, 5)).toBe(undefined);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(4);
+        expect(useSubtractScarcely(11, 1)).toBe(undefined);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(5);
+      });
+    });
+  });
 
 //   describe('Generator Functions', () => {
 //     describe('from', () => {
@@ -546,4 +546,4 @@ describe('Unary Functions', () => {
 //       expect(gen()).toBe(undefined);
 //     });
 //   });
-});
+// });

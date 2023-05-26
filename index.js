@@ -79,7 +79,16 @@ function composeB(func1, func2) {
   }
 }
 
-function limit() {}
+function limit(func, num){
+  let restrictedTo = num;
+  let result = 0;
+  return function restrictedFunc(a, b){
+    if(restrictedTo-- > 0) {
+      result = func(a,b);
+      return result; 
+    } 
+  };
+}
 
 function from() {}
 
