@@ -90,7 +90,12 @@ function limit(func, num){
   };
 }
 
-function from() {}
+function from(num) {
+  let result = 0;
+  return function generator(){
+      return result = num++; 
+  };
+}
 
 function to() {}
 

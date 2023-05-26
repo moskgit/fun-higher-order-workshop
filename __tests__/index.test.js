@@ -205,23 +205,24 @@ describe('Unary Functions', () => {
     });
   });
 
-//   describe('Generator Functions', () => {
-//     describe('from', () => {
-//       it('returns a function on first invocation', () => {
-//         const index = from();
-//         expect(typeof index).toBe('function');
-//       });
-//       it('returns given value on first call', () => {
-//         const index = from(0);
-//         expect(index()).toBe(0);
-//       });
-//       it('Subsequent invocations emits consecutive integers', () => {
-//         const index = from(0);
-//         expect(index()).toBe(0);
-//         expect(index()).toBe(1);
-//         expect(index()).toBe(2);
-//       });
-//     });
+  describe('Generator Functions', () => {
+    describe('from', () => {
+      it('returns a function on first invocation', () => {
+        const index = from();
+        expect(typeof index).toBe('function');
+      });
+      it('returns given value on first call', () => {
+        const index = from(0);
+        expect(index()).toBe(0);
+      });
+      it('Subsequent invocations emits consecutive integers', () => {
+        const index = from(0);
+        expect(index()).toBe(0);
+        expect(index()).toBe(1);
+        expect(index()).toBe(2);
+      });
+    });
+  });
 //     describe('to', () => {
 //       it('returns a function on first invocation', () => {
 //         const index = to(from(0), 5);
