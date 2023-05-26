@@ -124,11 +124,12 @@ describe("liftF", () => {
 });
 // });
 
-//   //  describe('once', () => {
-//   //    it('Add your first test here...', () => {
-//   //      // Write your own tests for once
-//   //    })
-//   //  })
+   describe('once', () => {
+     it('restricted to invoking once only', () => {
+        // Write your own tests for once
+        expect(once().toBe());
+     })
+   })
 
 //   describe('Unary Functions', () => {
 //     describe('twice', () => {
