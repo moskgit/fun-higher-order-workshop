@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": {
-    "url": "https://github.com/northcoders/w02-higher-order-fun.git",
+    "url": "git+https://github.com/northcoders/w02-higher-order-fun.git",
     "type": "git"
   },
   "author": "Mauro Gestoso <mauro@northcoders.com>",
@@ -12,6 +12,12 @@
     "test": "jest"
   },
   "devDependencies": {
-    "jest": "^29.1.2"
-  }
+    "jest": "^29.5.0"
+  },
+  "description": "Instructions for this repo can be found at: https://l2c.northcoders.com/courses/fun/hof",
+  "bugs": {
+    "url": "https://github.com/northcoders/w02-higher-order-fun/issues"
+  },
+  "homepage": "https://github.com/northcoders/w02-higher-order-fun#readme",
+  "keywords": []
 }
