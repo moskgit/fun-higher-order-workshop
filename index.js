@@ -22,7 +22,7 @@ function multiply(num1, num2) {
 }
 
 function increment(num) {
-  return add(num, 1);
+  return ++num;
 }
 
 function addF(num1) {
@@ -62,7 +62,6 @@ function twice(func) {
       result = func(a, a)
       return result
     }
-    // console.log("result: ", result)
     return result
   }
 }
@@ -108,25 +107,107 @@ function to(generator, limit) {
   }
 }
 
-function fromTo() {}
+function fromTo(num1, num2) {
+  return function generator(){
+      if(num1 < num2) return num1++; 
+  };
+}
 
-function element() {}
+function element (arr, gen) {
+  let start = 0;
+  if(typeof gen !== 'function')
+    gen = fromTo(0, arr.length);
+  
+  let arrLen = arr.length - 1;
+  return function generator() {
+    if(start == 0){
+      start = gen(); 
+      return arr[start];
+    }else if(start < arrLen--) 
+      return arr[gen()];
+  }
+}
 
-function collect() {}
+function collect(gen, arr) {
+  return function collector(){
+    const value = gen();
+    arr.push(value);
+    return value;
+  }
+}
 
-function filter() {}
+function filter(gen, predicate){
+  return function (){ //annonymous from this poin onwards.
+    if(predicate === 'alwaysTrue')
+      return gen();
+    if(predicate === 'alwaysFalse') 
+      return undefined;
+    else{
+      const val = gen();
+      if(predicate(val))
+        return val;
+      else
+        return undefined;
+    }
+  }
+}
 
-function concat() {}
+function concat(gen1, gen2) {
+  return function () {
+    const valOfGen1 = gen1();
+    if(valOfGen1 !== undefined)
+      return valOfGen1;
+    else if(typeof gen2 === 'function')
+      return gen2();
+  }
+}
 
-function fibonacciF() {}
+function fibonacciF(first, second) {
+  let callCount = 0;
+  return function () {
+    callCount++;
+    if(callCount === 1) return first;
+    if(callCount === 2) return second;
+    if(callCount === 3) return result = first + second;
+    first = second;
+    second = result;
+    return result = first + second;
+  }
+}
 
-function genSymF() {}
+function genSymF(char) {
+  const gen = from(0);
+  return function () {
+    return char + gen();
+  }
+}
 
-function genSymFF() {}
+function genSymFF(func, seed) {
+  return function (char){
+    let copyseed = seed;
+    return function(){
+      copyseed = func(copyseed);
+      return char + copyseed;
+    }
+  };
+}
 
-function counter() {}
+function counter(num) {
+  const countObj = {
+    up : () => ++num, 
+    down : () => --num
+  }
+  return countObj;
+}
 
-function revokable() {}
+function revokable(binFunc) {
+  const obj = {
+    invoke: binFunc,
+    //made a failed attemp to find and use some in-built method/machanism or something to revoke. This, the following. Please let me know if it's in your knowledge.
+    revoke: function () {this.invoke = () => undefined}
+  } 
+  return obj;
+}
 
 module.exports = {
   identity,
