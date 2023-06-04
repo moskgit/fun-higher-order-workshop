@@ -260,11 +260,15 @@ describe('Unary Functions', () => {
     it('returns given value on first call', () => {
       const index = fromTo(0, 5);
       expect(index()).toBe(0);
+      
     });
     it('Subsequent invocations emits consecutive integers', () => {
-      const index = fromTo(0, 2);
-      expect(index()).toBe(0);
+      const index = fromTo(1, 5);
       expect(index()).toBe(1);
+      expect(index()).toBe(2);
+      expect(index()).toBe(3);
+      expect(index()).toBe(4);
+      expect(index()).toBe(undefined);
     });
     it('exclusively emits undefined when surpassed limit (not inclusive)', () => {
       const index = fromTo(0, 2);
@@ -284,8 +288,9 @@ describe('Unary Functions', () => {
         const ele = element(fbiAgents, fromTo(1, 4));
         expect(ele()).toBe('Phillip Jeffries');
         expect(ele()).toBe('Gordon Cole');
+        expect(ele()).toBe(undefined);
       });
-      it('defaults to the beginning of the index when no generator is given', () => {
+      test('defaults to the beginning of the index when no generator is given', () => {
         const blackLodge = ['BOB', 'MIKE', 'The Giant'];
         const ele = element(blackLodge);
         expect(ele()).toBe('BOB');

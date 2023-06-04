@@ -192,6 +192,7 @@ function genSymFF(func, seed) {
   };
 }
 
+// Object Methods :
 function counter(num) {
   const countObj = {
     up : () => ++num, 
@@ -203,7 +204,7 @@ function counter(num) {
 function revokable(binFunc) {
   const obj = {
     invoke: binFunc,
-    //made a failed attemp to find and use some in-built method/machanism or something to revoke. This, the following. Please let me know if it's in your knowledge.
+    //made a failed attemp to find and use some in-built method/machanism or something to revoke. This - the following. Please let me know if it's in your knowledge.
     revoke: function () {this.invoke = () => undefined}
   } 
   return obj;
